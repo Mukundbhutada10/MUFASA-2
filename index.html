@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MUFASA - Indian Cultural Clothes Export</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom scrollbar for product cards */
+    ::-webkit-scrollbar {
+      height: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #bfa243;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f3f4f6;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #bfa243 0%, #f0df8b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation-fill-mode: forwards;
+      animation-name: fadeInUp;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Responsive grid for shop items */
+    @media (min-width: 640px) {
+      .shop-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1024px) {
+      .shop-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased select-none">
+  <!-- Header -->
+  <header class="bg-black text-yellow-500 sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6">
+      <div class="flex items-center space-x-3">
+        <img src="Mufasa logo.jpg" 
+            alt="Logo of MUFASA business showing stylized golden roaring lion head aligned right with text MUFASA in bold gold on black background" 
+            class="h-12 w-auto" loading="lazy" onerror="this.style.display='none'" />
+        <h1 class="text-3xl font-extrabold tracking-wide gradient-text select-text">MUFASA</h1>
+      </div>
+      <nav>
+        <ul class="flex space-x-8 text-lg font-medium uppercase tracking-widest">
+          <li><a href="#about" class="hover:text-yellow-400 transition">About</a></li>
+          <li><a href="#shop" class="hover:text-yellow-400 transition">Shop Now</a></li>
+          <li><a href="#culture" class="hover:text-yellow-400 transition">Culture</a></li>
+          <li><a href="#contact" class="hover:text-yellow-400 transition">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500">
+    <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
+      <div class="max-w-3xl text-center lg:text-left fade-in-up" style="animation-delay: 0.2s;">
+        <marquee behavior="scroll" direction="left" height="50">50% OFF | Sales on Ganesh Chaturthi from 15<sup>th</sup> of August | 50% OFF</marquee>
+        <center><img src="Mufasa shirt.jpg" width="307"></center>
+        <h1 class="text-5xl font-extrabold text-gray-900 mb-4 leading-tight">Bringing the Richness of Indian Cultural Clothes to the World</h2>
+        <p class="text-xl text-gray-800 mb-8 max-w-xl mx-auto lg:mx-0">At MUFASA, we export authentic and exquisite Indian cultural clothes, meticulously crafted with traditional artistry to customers across the globe.</p>
+        <a href="#shop" class="inline-block bg-black text-yellow-400 py-3 px-8 rounded-lg font-semibold tracking-wider hover:bg-yellow-400 hover:text-black transition focus:outline-none focus:ring-4 focus:ring-yellow-300">Shop Now</a>
+      </div>
+      <div class="flex-1">
+        <img src="saree.png" 
+          alt="Display showcasing a variety of elegant Indian cultural clothes on mannequins with vibrant colors and detailed embroidery under soft studio lighting" 
+          class="rounded-lg shadow-lg mx-auto lg:mx-0 w-full max-w-lg object-cover" loading="lazy" onerror="this.style.display='none'" />
+      </div>
+    </div>
+    <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="#111827" />
+    </svg>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="bg-gray-900 text-yellow-400 py-20 px-6">
+    <div class="container mx-auto max-w-5xl text-center">
+      <h3 class="text-4xl font-bold mb-6 tracking-wide">About MUFASA</h3>
+      <p class="text-lg max-w-3xl mx-auto leading-relaxed mb-6">
+        MUFASA is a premier exporter of Indian cultural clothes, committed to sharing the rich heritage, intricate craftsmanship, and timeless beauty of Indian traditional attire with the world. Our mission is to present authentic handwoven, embroidered, and embellished clothing that embodies the essence of India's cultural diversity—from regal sarees, luxurious lehengas, and traditional salwar kameez to ethnic men's wear like kurtas and sherwanis.
+      </p>
+      <p class="text-lg max-w-3xl mx-auto leading-relaxed">
+        We partner with skilled artisans and weavers who preserve ancestral methods passed down for generations, ensuring every piece tells a story. Our commitment to quality, authenticity, and sustainable sourcing make us a trusted name in international ethnic fashion.
+      </p>
+    </div>
+  </section>
+
+  <!-- Culture Section -->
+  <section id="culture" class="bg-yellow-50 py-16 px-6">
+    <div class="container mx-auto max-w-6xl text-gray-900">
+      <h3 class="text-4xl font-extrabold mb-12 text-center">The Cultural Essence</h3>
+      <div class="grid lg:grid-cols-3 gap-12">
+        <article class="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition cursor-default">
+          <h4 class="text-2xl font-semibold mb-4 text-yellow-700">Handwoven Textiles</h4>
+          <img src="handwoven textile.png" alt="Close up of colorful handwoven Indian textile fabric on an artisan loom, showcasing intricate patterns and fine threads in traditional style" class="rounded mb-4 shadow" loading="lazy" onerror="this.style.display='none'" />
+          <p class="text-gray-700 leading-relaxed">Traditional weaving techniques passed through generations from various regions like Banaras, Kanchipuram, and Patiala add uniqueness and heritage to our fabric. Each weave is an art form, vibrant and durable.</p>
+        </article>
+        <article class="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition cursor-default">
+          <h4 class="text-2xl font-semibold mb-4 text-yellow-700">Embroidery & Craft</h4>
+          <img src="craft.png" alt="Detailed embroidery stitches on an Indian lehenga, with gold zari and mirror work embroidery featuring floral and paisley designs" class="rounded mb-4 shadow" loading="lazy" onerror="this.style.display='none'" />
+          <p class="text-gray-700 leading-relaxed">Exquisite hand embroidery — zardozi, mirror work, chikankari, and gotta patti — brings richness and texture, amplifying the cultural depth and aesthetic appeal of every garment we export.</p>
+        </article>
+        <article class="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition cursor-default">
+          <h4 class="text-2xl font-semibold mb-4 text-yellow-700">Traditional Silhouettes</h4>
+          <img src="silkhouettes.png" alt="Collection featuring traditional Indian clothing silhouettes including sarees, sherwanis, and lehengas displayed elegantly on mannequins in a boutique" class="rounded mb-4 shadow" loading="lazy" onerror="this.style.display='none'" />
+          <p class="text-gray-700 leading-relaxed">From sarees draped in timeless styles to sherwanis that blend royal elegance with modern tailoring, our selection respects and celebrates India's sartorial legacy worldwide.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop Now Section -->
+  <section id="shop" class="bg-white py-20 px-6">
+    <div class="container mx-auto max-w-7xl">
+      <h3 class="text-5xl font-extrabold text-yellow-600 mb-12 text-center tracking-wide">Shop Now</h3>
+      <p class="text-center mb-12 text-gray-800 max-w-3xl mx-auto leading-relaxed text-lg">
+        Discover our exclusive collection of Indian cultural clothes, crafted to elevate your wardrobe with authenticity and elegance. Whether you desire the vibrancy of festive wear, the grace of bridal collections, or the comfort of casual ethnic styles, MUFASA delivers quality that lasts across borders.
+      </p>
+      <div class="grid shop-grid gap-10 mx-auto">
+        <!-- Product Cards -->
+        <article class="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col">
+          <img src="len.png" alt="Bridal red lehenga set with detailed gold embroidery and traditional design displayed on mannequin in elegant setting" class="mb-4 rounded shadow-md object-cover aspect-square" loading="lazy" onerror="this.style.display='none'" />
+          <h4 class="text-xl font-semibold text-yellow-800 mb-1">Bridal Red Lehenga Set</h4>
+          <p class="text-gray-700 flex-grow">A regal, intricately embroidered lehenga crafted with exquisite zardozi work, perfect for wedding celebrations and festive grandeur.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-yellow-700 font-bold text-lg">₹120,000</span>
+            <button class="bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
+          </div>
+        </article>
+        <article class="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col">
+          <img src="kanchipuram.png" alt="Luxurious Kanchipuram silk saree with rich golden border and deep royal blue body folded elegantly" class="mb-4 rounded shadow-md object-cover aspect-square" loading="lazy" onerror="this.style.display='none'" />
+          <h4 class="text-xl font-semibold text-yellow-800 mb-1">Kanchipuram Silk Saree</h4>
+          <p class="text-gray-700 flex-grow">A timeless Kanchipuram silk saree featuring vivid colors and regal gold zari borders, perfect for traditional occasions worldwide.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-yellow-700 font-bold text-lg">₹45,000</span>
+            <button class="bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
+          </div>
+        </article>
+        <article class="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col">
+          <img src="kurta.png" alt="Men's embroidered kurta set in cream color with detailed threadwork and matching churidar" class="mb-4 rounded shadow-md object-cover aspect-square" loading="lazy" onerror="this.style.display='none'" />
+          <h4 class="text-xl font-semibold text-yellow-800 mb-1">Embroidered Kurta Set</h4>
+          <p class="text-gray-700 flex-grow">Hand-embroidered kurta with delicate threadwork paired with comfortable churidar, perfect for festive or wedding events.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-yellow-700 font-bold text-lg">₹18,500</span>
+            <button class="bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
+          </div>
+        </article>
+        <article class="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col">
+          <img src="dupatta.png" alt="Vibrant multicolor Phulkari dupatta with intricate floral embroidery draped beautifully" class="mb-4 rounded shadow-md object-cover aspect-square" loading="lazy" onerror="this.style.display='none'" />
+          <h4 class="text-xl font-semibold text-yellow-800 mb-1">Phulkari Dupatta</h4>
+          <p class="text-gray-700 flex-grow">Traditional Punjabi Phulkari embroidery dupatta in multicolor threads on bright fabric, ideal for complementing various ethnic outfits.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-yellow-700 font-bold text-lg">₹9,000</span>
+            <button class="bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
+          </div>
+        </article>
+        <a href="Shop Now.html" class="inline-block bg-yellow-600 hover:bg-yellow-700 text-black font-bold py-3 px-8 rounded-lg font-semibold tracking-wider hover:bg-yellow-400 hover:text-black transition focus:outline-none focus:ring-4 focus:ring-yellow-300"><center>Show More</center></a>
+        <!-- Additional products can be added similarly -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="bg-gray-100 py-20 px-6">
+    <div class="container mx-auto max-w-5xl text-center text-gray-900">
+      <h3 class="text-4xl font-extrabold mb-12">What Our Customers Say</h3>
+      <div class="space-y-12 max-w-4xl mx-auto">
+        <blockquote class="bg-white rounded-lg p-8 shadow-md italic text-gray-700 cursor-default">
+          <p>"I was amazed by the quality and authenticity of the bridal lehenga I ordered from MUFASA. The craftsmanship truly reflects the rich Indian culture."</p>
+          <footer class="mt-4 font-semibold text-yellow-600">- Kajal J., USA</footer>
+        </blockquote>
+        <blockquote class="bg-white rounded-lg p-8 shadow-md italic text-gray-700 cursor-default">
+          <p>"The Kanchipuram saree shipped to me was even more beautiful than the pictures! Excellent customer service and fast delivery abroad."</p>
+          <footer class="mt-4 font-semibold text-yellow-600">- Thomas L., UK</footer>
+        </blockquote>
+        <blockquote class="bg-white rounded-lg p-8 shadow-md italic text-gray-700 cursor-default">
+          <p>"Buying authentic Indian ethnic wear outside India is tough, but MUFASA made it so easy with their wide collection and true craftsmanship."</p>
+          <footer class="mt-4 font-semibold text-yellow-600">- Sarah R., Singapore</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-gray-900 text-yellow-400 py-20 px-6">
+    <div class="container mx-auto max-w-3xl">
+      <h3 class="text-4xl font-bold mb-8 text-center">Get in Touch</h3>
+      <form class="bg-black bg-opacity-80 rounded-lg p-8 shadow-lg space-y-6" novalidate>
+        <div>
+          <label for="name" class="block mb-2 font-semibold">Name</label>
+          <input type="text" id="name" name="name" required minlength="3" 
+            class="w-full rounded px-4 py-3 bg-gray-800 text-yellow-200 border border-yellow-600 placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Your Full Name" />
+        </div>
+        <div>
+          <label for="email" class="block mb-2 font-semibold">Email</label>
+          <input type="email" id="email" name="email" required 
+            class="w-full rounded px-4 py-3 bg-gray-800 text-yellow-200 border border-yellow-600 placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="example@email.com" />
+        </div>
+        <div>
+          <label for="message" class="block mb-2 font-semibold">Message</label>
+          <textarea id="message" name="message" rows="5" required minlength="10"
+            class="w-full rounded px-4 py-3 bg-gray-800 text-yellow-200 border border-yellow-600 placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Write your message here..."></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 text-black font-bold px-8 py-3 rounded focus:ring-4 focus:ring-yellow-400 transition">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!--Headquater-->
+  <section class="relative bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500">
+    <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
+      <div class="max-w-3xl text-center lg:text-left fade-in-up" style="animation-delay: 0.2s;">
+        <h1 class="text-5xl font-extrabold text-gray-900 mb-4 leading-tight">Our Headquater</h2>
+          <center><img src="mufasa building.jpg" style="border-width:10px ;border-color: rgb(142, 135, 135);" width="340"></center>
+        <p class="text-xl text-gray-800 mb-8 max-w-xl mx-auto lg:mx-0">Our main center is present at<br> <b>Ardhapur, Nanded, Maharastra in India.</b><br><u><i>Come to see our Clothes Variety and Quality</i></u></p>
+        <a href="https://maps.app.goo.gl/nAmWSnWErQ6JBz8R8" class="inline-block bg-black text-yellow-400 py-3 px-8 rounded-lg font-semibold tracking-wider hover:bg-yellow-400 hover:text-black transition focus:outline-none focus:ring-4 focus:ring-yellow-300">Directions</a>
+      </div> </div> </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-gray-400 py-8 text-center text-sm select-none">
+    <p>© 2024 MUFASA. All rights reserved. Exporters of Authentic Indian Cultural Clothes Worldwide.</p>
+    <p>Follow us on 
+      <a href="#" class="text-yellow-400 hover:text-yellow-600 underline">Facebook</a>, 
+      <a href="#" class="text-yellow-400 hover:text-yellow-600 underline">Instagram</a>, 
+      <a href="#" class="text-yellow-400 hover:text-yellow-600 underline">Twitter</a>
+    </p>
+  </footer>
+
+  <script>
+    // Simple form validation and submission simulation
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = this.name.value.trim();
+      const email = this.email.value.trim();
+      const message = this.message.value.trim();
+      if (name.length < 3) {
+        alert('Please enter your name (at least 3 characters).');
+        this.name.focus();
+        return;
+      }
+      if (!email.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/)) {
+        alert('Please enter a valid email address.');
+        this.email.focus();
+        return;
+      }
+      if (message.length < 10) {
+        alert('Please enter a message of at least 10 characters.');
+        this.message.focus();
+        return;
+      }
+      alert('Thank you for contacting MUFASA! We will get back to you shortly.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
+

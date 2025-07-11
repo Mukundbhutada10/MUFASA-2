@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Now</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom scrollbar for product cards */
+    ::-webkit-scrollbar {
+      height: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #bfa243;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f3f4f6;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #bfa243 0%, #f0df8b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation-fill-mode: forwards;
+      animation-name: fadeInUp;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Responsive grid for shop items */
+    @media (min-width: 640px) {
+      .shop-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1024px) {
+      .shop-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+    <section id="culture" class="bg-yellow-50 py-16 px-6">
+    <div class="container mx-auto max-w-7xl">
+      <h3 class="text-5xl font-extrabold text-yellow-600 mb-12 text-center tracking-wide">Shop Now</h3> 
+    <h3 class="text-4xl font-extrabold mb-12 text-center">Our Product Catalouge</h3>
+    </div>
+    <!-- sherwani -->
+    <article class="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col">
+          <center><img src="sherwani 2.png" width="340" loading="lazy" onerror="this.style.display='none'" alt="Luxurious Kanchipuram silk saree with rich golden border and deep royal blue body folded elegantly" class="mb-4 rounded shadow-md object-cover"></center>
+          <h4 class="text-xl font-semibold text-yellow-800 mb-1">Sherwani</h4>
+          <p class="text-gray-700 flex-grow">A best quality Sherwani for Men with bright colour to have a special look in traditional occasions.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-yellow-700 font-bold text-lg">₹39,995</span>
+            <button class="bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
+          </div>
+        </article>
+        <br>
+    <!-- men lungi -->
+     <article class="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col">
+          <center><img src="lungi.png" width="340" alt="Luxurious Kanchipuram silk saree with rich golden border and deep royal blue body folded elegantly" class="mb-4 rounded shadow-md object-cover" loading="lazy" onerror="this.style.display='none'" /></center>
+          <h4 class="text-xl font-semibold text-yellow-800 mb-1">Men Lungi</h4>
+          <p class="text-gray-700 flex-grow">A traditional cotton Lugi designed for Men to continue the powerful focus on South Indian culture.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-yellow-700 font-bold text-lg">₹5,999</span>
+            <button class="bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
+          </div>
+        </article>
+        <br>
+    <!-- ghagra choli -->
+     <article class="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col">
+          <center><img src="ghagra choli.png" width="340" alt="Luxurious Kanchipuram silk saree with rich golden border and deep royal blue body folded elegantly" class="mb-4 rounded shadow-md object-cover" loading="lazy" onerror="this.style.display='none'" /></center>
+          <h4 class="text-xl font-semibold text-yellow-800 mb-1">Ghagra Choli</h4>
+          <p class="text-gray-700 flex-grow">A beatiful Ghagra choli of rajathan and gujarat culture with the the best of its glassy design.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-yellow-700 font-bold text-lg">₹49,555</span>
+            <button class="bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
+          </div>
+        </article>
+        <br>
+     <!-- paithani saree -->
+      <article class="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col">
+          <center><img src="Paithani saree.png" width="340" alt="Luxurious Kanchipuram silk saree with rich golden border and deep royal blue body folded elegantly" class="mb-4 rounded shadow-md object-cover" loading="lazy" onerror="this.style.display='none'" /></center>
+          <h4 class="text-xl font-semibold text-yellow-800 mb-1">Paithani Saree</h4>
+          <p class="text-gray-700 flex-grow">A mesmerizing feel of Maharastrian culture with colourful sarees of paithan during special cultural events.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-yellow-700 font-bold text-lg">₹44,988</span>
+            <button class="bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
+          </div>
+        </article>
+</section>
+</body>
+</html>
