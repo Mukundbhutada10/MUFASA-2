@@ -200,32 +200,47 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="bg-gray-900 text-yellow-400 py-20 px-6">
-    <div class="container mx-auto max-w-3xl">
-      <h3 class="text-4xl font-bold mb-8 text-center">Get in Touch</h3>
-      <form class="bg-black bg-opacity-80 rounded-lg p-8 shadow-lg space-y-6" novalidate>
-        <div>
-          <label for="name" class="block mb-2 font-semibold">Name</label>
-          <input type="text" id="name" name="name" required minlength="3" 
-            class="w-full rounded px-4 py-3 bg-gray-800 text-yellow-200 border border-yellow-600 placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Your Full Name" />
-        </div>
-        <div>
-          <label for="email" class="block mb-2 font-semibold">Email</label>
-          <input type="email" id="email"
-            class="w-full rounded px-4 py-3 bg-gray-800 text-yellow-200 border border-yellow-600 placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="example@email.com" />
-        </div>
-        <div>
-          <label for="message" class="block mb-2 font-semibold">Message</label>
-          <textarea id="message" name="message" rows="5" required minlength="10"
-            class="w-full rounded px-4 py-3 bg-gray-800 text-yellow-200 border border-yellow-600 placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Write your message here..."></textarea>
-        </div>
-        <div class="text-center">
-          <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 text-black font-bold px-8 py-3 rounded focus:ring-4 focus:ring-yellow-400 transition">Send Message</button>
-        </div>
-      </form>
-    </div>
-  </section>
+<!-- Contact Section -->
+<section id="contact" class="bg-gray-900 text-yellow-400 py-20 px-6">
+  <div class="container mx-auto max-w-3xl">
+    <h3 class="text-4xl font-bold mb-8 text-center">Get in Touch</h3>
+    
+    <form action="https://formspree.io/f/mqalddbo" method="POST" class="bg-black bg-opacity-80 rounded-lg p-8 shadow-lg space-y-6">
+      
+      <!-- Hidden Fields -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New Message from Portfolio Contact Form">
+
+      <div>
+        <label for="name" class="block mb-2 font-semibold">Name</label>
+        <input type="text" id="name" name="name" required minlength="3" 
+          class="w-full rounded px-4 py-3 bg-gray-800 text-yellow-200 border border-yellow-600 placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400" 
+          placeholder="Your Full Name" />
+      </div>
+
+      <div>
+        <label for="email" class="block mb-2 font-semibold">Email</label>
+        <input type="email" id="email" name="email" required
+          class="w-full rounded px-4 py-3 bg-gray-800 text-yellow-200 border border-yellow-600 placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400" 
+          placeholder="example@email.com" />
+      </div>
+
+      <div>
+        <label for="message" class="block mb-2 font-semibold">Message</label>
+        <textarea id="message" name="message" rows="5" required minlength="10"
+          class="w-full rounded px-4 py-3 bg-gray-800 text-yellow-200 border border-yellow-600 placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400" 
+          placeholder="Write your message here..."></textarea>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" 
+          class="bg-yellow-600 hover:bg-yellow-700 text-black font-bold px-8 py-3 rounded focus:ring-4 focus:ring-yellow-400 transition">
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
 
   <!--Headquater-->
   <section class="relative bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500" style="align-item:center">
@@ -277,5 +292,6 @@
   </script>
 </body>
 </html>
+
 
 
