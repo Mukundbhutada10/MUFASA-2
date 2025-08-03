@@ -209,7 +209,7 @@
       
       <!-- Hidden Fields -->
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_subject" value="New Message from Portfolio Contact Form">
+      <input type="hidden" name="_subject" value="MUFASA Contact Form filled">
 
       <div>
         <label for="name" class="block mb-2 font-semibold">Name</label>
@@ -227,7 +227,7 @@
 
       <div>
         <label for="message" class="block mb-2 font-semibold">Message</label>
-        <textarea id="message" name="message" rows="5" required minlength="10"
+        <textarea id="message" name="message" rows="5" required minlength="5"
           class="w-full rounded px-4 py-3 bg-gray-800 text-yellow-200 border border-yellow-600 placeholder-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400" 
           placeholder="Write your message here..."></textarea>
       </div>
@@ -281,7 +281,7 @@
         this.email.focus();
         return;
       }
-      if (message.length < 10) {
+      if (message.length < 5) {
         alert('Please enter a message of at least 10 characters.');
         this.message.focus();
         return;
@@ -291,6 +291,7 @@
   </script>
 </body>
 </html>
+
 
 
 
