@@ -84,7 +84,7 @@ const Chatbot: React.FC = () => {
   return (
     <>
       <div className={`
-        fixed bottom-24 right-4 sm:right-8
+        fixed bottom-24 right-4 sm:right-8 z-[9999]
         w-[calc(100%-2rem)] max-w-lg h-[70vh] max-h-[600px]
         flex flex-col
         bg-gray-800/50 backdrop-blur-sm border border-gray-700
@@ -139,7 +139,7 @@ const Chatbot: React.FC = () => {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-blue-500 transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+        className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-blue-500 transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 z-[9999]"
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >
         <div className={`transition-all duration-300 ease-in-out absolute ${isOpen ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'}`}>
