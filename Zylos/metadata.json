@@ -1,0 +1,5 @@
+{
+  "name": "MUFASA AI Chatbot",
+  "description": "An AI-powered chatbot for the MUFASA Indian Fashion Brand, named Zylos. It is trained on company information to answer specific queries and can also handle general knowledge questions.",
+  "requestFramePermissions": []
+}
