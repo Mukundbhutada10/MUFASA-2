@@ -1,12 +1,15 @@
 import { GoogleGenAI, Chat } from "@google/genai";
 import { COMPANY_INFO } from '../constants';
 
-const API_KEY = process.env.API_KEY;
+// Safely access the API key in a way that works in both Node.js and browser environments.
+// This prevents a "process is not defined" error in the browser.
+const API_KEY = typeof process !== 'undefined' && process.env ? process.env.API_KEY : undefined;
+
 
 if (!API_KEY) {
   // In a real app, you might show a user-friendly message or disable chat functionality.
-  // For this example, we'll throw an error during development.
-  console.error("API_KEY environment variable not set. Chat functionality will be disabled.");
+  // For this example, we'll log an error to the console.
+  console.error("Gemini API key not found. Chat functionality will be disabled.");
 }
 
 // We create the AI instance but will only proceed if the API key is present.
