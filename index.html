@@ -303,27 +303,25 @@
     
     });
   </script>
-  <script>
-  (function (w, d, s, o, f, js, fjs) {
-    w["botsonic_widget"] = o;
-    w[o] =
-      w[o] ||
-      function () {
-        (w[o].q = w[o].q || []).push(arguments);
-      };
-    (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
-    js.id = o;
-    js.src = f;
-    js.async = 1;
-    fjs.parentNode.insertBefore(js, fjs);
-  })(window, document, "script", "Botsonic", "https://widget.botsonic.com/CDN/botsonic.min.js");
-  Botsonic("init", {
-    serviceBaseUrl: "https://api-bot.writesonic.com",
-    token: "00175753-4171-45e9-ad9e-d5bd0f6f671e",
-  });
+  <!-- Start of MUFASA AI Chatbot (Zylos) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.25.0"
+  }
+}
 </script>
-</body>
+<div id="mufasa-chatbot-widget-root"></div>
+<script type="module" src="MUFASA-2/Zylos/index.tsx"></script> 
+<!-- NOTE: You may need to change the path above to where you upload the chatbot files -->
+<!-- End of MUFASA AI Chatbot -->
+ </body>
 </html>
+
 
 
 
