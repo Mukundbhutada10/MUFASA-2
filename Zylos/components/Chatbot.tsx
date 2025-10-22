@@ -25,10 +25,11 @@ const Chatbot: React.FC = () => {
   const chatSession = useRef(getChatSession());
 
   useEffect(() => {
-      if (!process.env.API_KEY) {
+      // Safely check if the chat session was initialized.
+      // The service will return null if the API key is missing.
+      if (!chatSession.current) {
           setError("API key is not configured. Chatbot is disabled.");
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const scrollToBottom = () => {
