@@ -32,6 +32,69 @@
     animation: shimmer 3s linear infinite;
 }
 
+ .scratch-card {
+        width: 320px;
+        height: 170px;
+        margin: 24px auto 0 auto;
+        position: relative;
+        border-radius: 18px;
+        background-color: #fbbf24;
+        box-shadow: 0 4px 18px 0 rgba(24,24,50,0.16);
+        overflow: hidden;
+        user-select: none;
+        border: 2px solid #eab308;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .scratch-card .back-text {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        color: #242424;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 38px;
+        font-weight: 900;
+        letter-spacing: 2.5px;
+        text-align: center;
+        background: linear-gradient(135deg, #fafcbf 80%, #fde68a 100%);
+        border-radius: 15px;
+        user-select: none;
+        z-index: 1;
+        pointer-events: none;
+      }
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+      }
+      button#scratch-submit, button#form-submit {
+        display: block;
+        margin: 15px auto 0;
+        background-color: #fbbf24;
+        border: none;
+        padding: 10px 24px;
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+        border-radius: 8px;
+        cursor: not-allowed;
+        opacity: 0.5;
+        transition: background-color 0.3s ease, opacity 0.3s ease;
+      }
+      button#scratch-submit.enabled, button#form-submit.enabled {
+        cursor: pointer;
+        opacity: 1;
+        background-color: #facc15;
+      }
     </style>
 </head>
 <body>
@@ -144,6 +207,19 @@
       </div>
     </form>
   </div>
+  <!-- SCRATCH CARD -->
+        <div class="scratch-card" id="scratchCard">
+          <div class="back-text" id="backText"></div>
+          <canvas id="scratchCanvas"></canvas>
+        </div>
+
+        <button type="button" id="scratch-submit" disabled>Go for scratch offer</button>
+
+      </form>
+    </div>
+  </section>
+
+
 </section>
 
  <section class="bg-gray-100 py-20 px-6">
@@ -208,6 +284,128 @@ document.addEventListener('DOMContentLoaded', function() {
       line3.style.transform = 'rotate(0) translateY(0)';
     }
   });
+});
+</script>
+<script>
+const offers = ['5%', '10%', '20%', '50%'];
+let selectedOffer = offers[Math.floor(Math.random() * offers.length)];
+
+const scratchCard = document.getElementById('scratchCard');
+const backText = document.getElementById('backText');
+const canvas = document.getElementById('scratchCanvas');
+let ctx = canvas.getContext('2d');
+const submitBtn = document.getElementById('scratch-submit');
+const formSubmitBtn = document.getElementById('form-submit');
+const form = document.getElementById('couponForm');
+
+let isDrawing = false;
+let lastPoint = { x: 0, y: 0 };
+let scratchedPercent = 0;
+const revealPercentThreshold = 45;
+const scratchWidth = 20;
+let scratchDone = false; // only true when revealed!
+
+// Set offer number and make it visible under the pattern
+backText.textContent = '🎉 ' + selectedOffer + ' OFF 🎉';
+backText.style.display = 'flex';
+
+function resizeCanvasImgBg(patternURL, callback) {
+  canvas.width = scratchCard.clientWidth;
+  canvas.height = scratchCard.clientHeight;
+  let img = new window.Image();
+  img.src = patternURL;
+  img.onload = function() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // tile the image pattern
+    let pattern = ctx.createPattern(img, 'repeat');
+    ctx.fillStyle = pattern;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    if (typeof callback === 'function') callback();
+  }
+}
+function getScratchPercentage() {
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  let total = imageData.data.length / 4;
+  let count = 0;
+  for (let i = 3; i < imageData.data.length; i += 4) {
+    if (imageData.data[i] === 0) count++;
+  }
+  return (count / total) * 100;
+}
+function drawLine(from, to) {
+  ctx.globalCompositeOperation = 'destination-out';
+  ctx.lineWidth = scratchWidth;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(from.x, from.y);
+  ctx.lineTo(to.x, to.y);
+  ctx.stroke();
+}
+
+function revealOffer() {
+  canvas.style.display = 'none';
+  scratchDone = true;
+  submitBtn.disabled = false;
+  submitBtn.classList.add('enabled');
+}
+
+function updateFormSubmitStatus() {
+  if (form.checkValidity() && scratchDone) {
+    formSubmitBtn.disabled = false;
+    formSubmitBtn.classList.add('enabled');
+  } else {
+    formSubmitBtn.disabled = true;
+    formSubmitBtn.classList.remove('enabled');
+  }
+}
+
+canvas.addEventListener('mousedown', (e) => {
+  if (!scratchDone) {
+    isDrawing = true;
+    lastPoint = { x: e.offsetX, y: e.offsetY };
+  }
+});
+canvas.addEventListener('mousemove', (e) => {
+  if (!isDrawing || scratchDone) return;
+  const currentPoint = { x: e.offsetX, y: e.offsetY };
+  drawLine(lastPoint, currentPoint);
+  lastPoint = currentPoint;
+  scratchedPercent = getScratchPercentage();
+  if (scratchedPercent > revealPercentThreshold) {
+    isDrawing = false;
+    revealOffer();
+    updateFormSubmitStatus();
+  }
+});
+canvas.addEventListener('mouseup', () => {
+  isDrawing = false;
+});
+canvas.addEventListener('mouseleave', () => {
+  isDrawing = false;
+});
+window.addEventListener('resize', () => {
+  // Redraw the pattern if resized
+  resizeCanvasImgBg('image.jpg');
+});
+
+// Initial load of pattern (using attachment image)
+resizeCanvasImgBg('image.jpg');
+
+// Scratch offer submits nothing but enables main submit
+submitBtn.addEventListener('click', () => {
+  // nothing to do but show submit enabled, handled in revealOffer()
+  updateFormSubmitStatus();
+});
+
+// check validity for submit button
+form.addEventListener('input', () => {
+  updateFormSubmitStatus();
+});
+
+form.addEventListener('submit', function(e) {
+  // For demonstration: enable the below line to perform submission
+  // Otherwise, prevent demo submission:
+  // e.preventDefault();
 });
 </script>
 </body>
