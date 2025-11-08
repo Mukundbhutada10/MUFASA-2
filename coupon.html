@@ -380,6 +380,44 @@ canvas.addEventListener('mousemove', (e) => {
 canvas.addEventListener('mouseup', () => {
   isDrawing = false;
 });
+    // -- Add after your mouse event listeners --
+canvas.addEventListener('touchstart', function(e) {
+  if (!scratchDone) {
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+    isDrawing = true;
+    lastPoint = {
+      x: touch.clientX - rect.left,
+      y: touch.clientY - rect.top
+    };
+  }
+});
+
+canvas.addEventListener('touchmove', function(e) {
+  if (!isDrawing || scratchDone) return;
+  e.preventDefault(); // prevent scrolling
+  const rect = canvas.getBoundingClientRect();
+  const touch = e.touches[0];
+  const currentPoint = {
+    x: touch.clientX - rect.left,
+    y: touch.clientY - rect.top
+  };
+  drawLine(lastPoint, currentPoint);
+  lastPoint = currentPoint;
+  scratchedPercent = getScratchPercentage();
+  if (scratchedPercent > revealPercentThreshold) {
+    isDrawing = false;
+    revealOffer();
+    updateFormSubmitStatus();
+  }
+});
+
+canvas.addEventListener('touchend', function(e) {
+  isDrawing = false;
+});
+canvas.addEventListener('touchcancel', function(e) {
+  isDrawing = false;
+});
 canvas.addEventListener('mouseleave', () => {
   isDrawing = false;
 });
@@ -410,3 +448,4 @@ form.addEventListener('submit', function(e) {
 </script>
 </body>
 </html>
+
