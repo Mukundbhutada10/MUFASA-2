@@ -47,6 +47,25 @@
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
+
+    /* Animated shimmer effect for the heading */
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.shimmer-text {
+    background: linear-gradient(90deg, #f6b207 0%, #fde047 25%, #facc15 50%, #fde047 75%, #fbbf24 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+}    
   </style>
   <!-- Favicon Basic -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -68,7 +87,7 @@
   <div class="container mx-auto flex items-center justify-between py-4 px-6">
     <div class="flex items-center space-x-3">
       <img src="Mufasa logo.jpg" alt="Logo of MUFASA" class="h-12 w-auto" loading="lazy" onerror="this.style.display='none'"/>
-      <h1 class="text-3xl font-extrabold tracking-wide gradient-text select-text">MUFASA</h1>
+      <h1 class="text-3xl font-extrabold tracking-wide gradient-text select-text shimmer-text">MUFASA</h1>
     </div>
 
     <!-- Hamburger with inline styles -->
@@ -368,6 +387,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
  </body>
 </html>
+
 
 
 
