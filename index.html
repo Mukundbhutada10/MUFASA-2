@@ -65,7 +65,48 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shimmer 3s linear infinite;
-}    
+}
+
+/* Add to Cart Mufasa Animation */
+.add-to-cart-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-btn.mufasa-active {
+    background-color: #000 !important;
+    background-image: url('Mufasa%20logo.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: transparent !important;
+    box-shadow: 0 0 15px 5px rgba(250, 204, 21, 0.6);
+    animation: mufasa-shimmer 1.5s infinite linear;
+    pointer-events: none;
+}
+
+.add-to-cart-btn.mufasa-active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg);
+    animation: shimmer-swipe 1.5s infinite;
+}
+
+@keyframes shimmer-swipe {
+    100% { left: 200%; }
+}
+
+@keyframes mufasa-shimmer {
+    0% { box-shadow: 0 0 10px 2px rgba(250, 204, 21, 0.4); }
+    50% { box-shadow: 0 0 20px 8px rgba(250, 204, 21, 0.8); }
+    100% { box-shadow: 0 0 10px 2px rgba(250, 204, 21, 0.4); }
+}
   </style>
   <!-- Favicon Basic -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -186,7 +227,7 @@
           <p class="text-gray-700 flex-grow">A regal, intricately embroidered lehenga crafted with exquisite zardozi work, perfect for wedding celebrations and festive grandeur.</p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-yellow-700 font-bold text-lg">₹12,000</span>
-            <button class="bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
+            <button class="add-to-cart-btn bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
           </div>
         </article>
         <article class="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col">
@@ -195,7 +236,7 @@
           <p class="text-gray-700 flex-grow">A timeless Kanchipuram silk saree featuring vivid colors and regal gold zari borders, perfect for traditional occasions worldwide.</p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-yellow-700 font-bold text-lg">₹45,000</span>
-            <button class="bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
+            <button class="add-to-cart-btn bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
           </div>
         </article>
         <article class="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col">
@@ -204,7 +245,7 @@
           <p class="text-gray-700 flex-grow">Hand-embroidered kurta with delicate threadwork paired with comfortable churidar, perfect for festive or wedding events.</p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-yellow-700 font-bold text-lg">₹18,500</span>
-            <button class="bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
+            <button class="add-to-cart-btn bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
           </div>
         </article>
         <article class="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col">
@@ -213,7 +254,7 @@
           <p class="text-gray-700 flex-grow">Traditional Punjabi Phulkari embroidery dupatta in multicolor threads on bright fabric, ideal for complementing various ethnic outfits.</p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-yellow-700 font-bold text-lg">₹9,000</span>
-            <button class="bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
+            <button class="add-to-cart-btn bg-yellow-600 text-white rounded px-4 py-2 font-semibold hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400">Add to Cart</button>
           </div>
         </article>
         <a href="Shop Now.html" class="inline-block bg-yellow-600 hover:bg-yellow-700 text-black font-bold py-3 px-8 rounded-lg font-semibold tracking-wider hover:bg-yellow-400 hover:text-black transition focus:outline-none focus:ring-4 focus:ring-yellow-300"><center>Show More</center></a>
@@ -385,6 +426,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
   
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const addToCartBtns = document.querySelectorAll(".add-to-cart-btn");
+    addToCartBtns.forEach(btn => {
+      btn.addEventListener("click", function(e) {
+        e.preventDefault();
+        if (!this.classList.contains("mufasa-active")) {
+          this.classList.add("mufasa-active");
+          setTimeout(() => {
+            this.classList.remove("mufasa-active");
+          }, 3000);
+        }
+      });
+    });
+  });
+</script>
  </body>
 </html>
 
